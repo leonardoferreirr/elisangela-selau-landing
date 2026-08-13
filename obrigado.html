@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pedido enviado | Elisângela Selau Arquitetura</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F4F0E9">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="assets/img/marca.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/mulish.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .ty{min-height:100svh; display:grid; place-items:center; text-align:center; padding:2rem var(--gutter)}
+  .ty__inner{max-width:44ch}
+  .ty .brand{width:clamp(190px,26vw,250px); color:var(--ink); margin:0 auto 2.75rem}
+  .ty h1{font-family:var(--serif); font-weight:200; font-size:clamp(2.1rem,5vw,3.4rem); line-height:1.06; letter-spacing:-.025em; margin-bottom:1.1rem}
+  .ty p{color:var(--ink-2); margin-bottom:2.25rem}
+  .ty__acoes{display:flex; flex-wrap:wrap; gap:.9rem; justify-content:center}
+  .dots{display:flex; gap:7px; justify-content:center; margin-bottom:2.5rem}
+  .dots i{width:6px; height:6px; border-radius:50%; background:var(--bronze); opacity:.28; animation:pulsa 1.25s infinite}
+  .dots i:nth-child(2){animation-delay:.16s} .dots i:nth-child(3){animation-delay:.32s}
+  @keyframes pulsa{0%,100%{opacity:.22; transform:scale(.85)} 45%{opacity:1; transform:scale(1)}}
+  @media (prefers-reduced-motion:reduce){ .dots i{animation:none; opacity:.6} }
+</style>
+</head>
+<body>
+<main class="ty">
+  <div class="ty__inner">
+    <a class="brand" href="index.html" aria-label="Elisângela Selau Arquitetura"></a>
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h1>Pedido enviado.</h1>
+    <p id="txt">Estamos abrindo o seu WhatsApp com a mensagem já preenchida. É só tocar em enviar.</p>
+    <div class="ty__acoes">
+      <a class="btn" id="ir" href="#">
+        Abrir o WhatsApp agora
+        <svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="index.html">Voltar ao site</a>
+    </div>
+  </div>
+</main>
+
+<script>
+(() => {
+  const WHATS = '5554984026936';
+  const ctx = new URLSearchParams(location.search).get('c') || 'site';
+
+  let texto = '';
+  try { texto = sessionStorage.getItem('elis_msg') || ''; sessionStorage.removeItem('elis_msg'); } catch (_) {}
+  if (!texto) texto = 'Olá, Elisângela! Vim pelo site e gostaria de conversar sobre um projeto.';
+
+  const destino = `https://wa.me/${WHATS}?text=${encodeURIComponent(texto)}`;
+  document.getElementById('ir').href = destino;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'conversao_orcamento', contexto: ctx });
+
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setTimeout(() => location.replace(destino), 1800);
+  } else {
+    document.getElementById('txt').textContent =
+      'Recebemos o seu pedido. Toque no botão abaixo para abrir o WhatsApp com a mensagem pronta.';
+  }
+})();
+</script>
+</body>
+</html>
