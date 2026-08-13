@@ -30,6 +30,8 @@
   --muted:#736A5E;
   --bronze:#B29570;
   --bronze-deep:#87683F;
+  --verde:#0F7A45;
+  --verde-deep:#0A5C33;
   --line:rgba(23,20,16,.14);
   --line-soft:rgba(23,20,16,.08);
 
@@ -88,7 +90,7 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
 
 /* ---------- botões ---------- */
 .btn{
-  --bg:var(--ink); --fg:var(--paper-2);
+  --bg:var(--verde); --fg:#fff; --hover:var(--verde-deep);
   position:relative; display:inline-flex; align-items:center; gap:.75rem;
   padding:1.02rem 1.9rem; background:var(--bg); color:var(--fg);
   font-size:.875rem; font-weight:600; letter-spacing:.06em;
@@ -97,17 +99,18 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
   transition:color .45s var(--ease), border-color .45s var(--ease), transform .5s var(--ease);
 }
 .btn::before{
-  content:''; position:absolute; inset:0; z-index:-1; background:var(--bronze);
+  content:''; position:absolute; inset:0; z-index:-1; background:var(--hover);
   transform:translateY(101%); transition:transform .55s var(--ease);
 }
 .btn:hover::before,.btn:focus-visible::before{transform:translateY(0)}
-.btn:hover,.btn:focus-visible{border-color:var(--bronze); color:#fff}
+.btn:hover,.btn:focus-visible{border-color:var(--hover); color:#fff}
 .btn:active{transform:scale(.985)}
 .btn .arw{transition:transform .5s var(--ease)}
 .btn:hover .arw{transform:translateX(4px)}
-.btn--ghost{--bg:transparent; --fg:var(--ink); border-color:var(--line)}
+.btn--ghost{--bg:transparent; --fg:var(--ink); --hover:var(--ink); border-color:var(--line)}
 .btn--ghost:hover,.btn--ghost:focus-visible{color:#fff}
-.btn--light{--bg:var(--paper-2); --fg:var(--ink)}
+/* sobre foto: um respiro escuro para o verde não brigar com a imagem */
+.btn--onphoto{box-shadow:0 14px 34px -14px rgba(8,32,20,.75)}
 
 .lnk{
   display:inline-flex; align-items:center; gap:.6rem; padding-block:.35rem;
@@ -289,8 +292,12 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
     radial-gradient(58% 46% at 50% 46%,rgba(12,10,8,.5),transparent 72%),
     linear-gradient(180deg,rgba(12,10,8,.48),rgba(12,10,8,.2) 45%,rgba(12,10,8,.6));
 }
+.band__inner{
+  position:relative; z-index:2; display:flex; flex-direction:column; align-items:center;
+  gap:clamp(1.75rem,3.5vw,2.5rem);
+}
 .band__quote{
-  position:relative; z-index:2; max-width:22ch; padding-inline:var(--gutter);
+  max-width:22ch; padding-inline:var(--gutter);
   font-family:var(--serif); font-weight:200; font-style:italic;
   font-size:clamp(1.75rem,4vw,3.15rem); line-height:1.16; letter-spacing:-.02em;
   color:#fff; text-align:center; text-wrap:balance;
