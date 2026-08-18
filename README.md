@@ -36,14 +36,19 @@ Tipografia: **Newsreader** (títulos, com itálico) e **Mulish** (texto e rótul
 
 ## Conversão
 
-Não existe formulário. A cliente pediu contato direto, sem nada para preencher,
-então os onze CTAs da página apontam para `obrigado?c=<seção>`, que dispara
+Não existe formulário nem seção de contato. A cliente pediu contato direto,
+sem nada para preencher, então os CTAs da página apontam para
+`obrigado?c=<seção>`, que dispara
 `dataLayer.push({event:'conversao_orcamento', contexto})` e redireciona para o
 WhatsApp do escritório em 1,8s, com a mensagem de abertura já pronta.
 
 O `c=` identifica de onde saiu o clique (`topo`, `hero`, `servicos`, `projetos`,
-`processo`, `arquiteta`, `faixa`, `contato`, `menu`, `instagram`), o que permite
+`processo`, `arquiteta`, `faixa`, `menu`, `instagram`, `rodape`), o que permite
 ver no Analytics qual seção converte.
+
+Os dados de contato vivem só no rodapé, com ícone ao lado de cada um. O rodapé
+carrega `id="contato"`, então o item "Contato" do menu continua funcionando
+depois que a seção saiu.
 
 **O link é sem o `.html` de propósito.** Com `cleanUrls: true` no `vercel.json`,
 `/obrigado.html` redireciona para `/obrigado` e a query se perde no caminho,
