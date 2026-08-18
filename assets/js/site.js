@@ -7,13 +7,14 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ------------------------------------------------------------------
-     Entrega do formulário.
-     Hoje a mensagem chega no WhatsApp do escritório já preenchida.
-     Para receber por e-mail, basta preencher ENDPOINT com a URL de um
-     serviço de formulário (Web3Forms, Formspree e similares).
+     Não há formulário: todo CTA vai para obrigado?c=<seção>, que dispara
+     a conversão e redireciona para o WhatsApp do escritório. O número
+     mora em obrigado.html, num lugar só.
+
+     O link é sem o .html de propósito: com cleanUrls ligado no
+     vercel.json, /obrigado.html redireciona para /obrigado e a query
+     se perde no caminho, levando junto o contexto da conversão.
      ------------------------------------------------------------------ */
-  const WHATS    = '5554984026936';
-  const ENDPOINT = '';
 
   /* ============================ NAV ============================ */
   const nav = $('#nav');
@@ -102,79 +103,37 @@
     } else montar();
   }
 
-  /* ============================ FORMULÁRIO ============================ */
-  const form = $('#form');
-  if (form) {
-    const campo = (el) => el.closest('.field');
-    const foneEl = $('#fone');
-
-    // máscara leve de telefone
-    foneEl.addEventListener('input', () => {
-      const d = foneEl.value.replace(/\D/g, '').slice(0, 11);
-      foneEl.value = d.length <= 2 ? d
-        : d.length <= 6 ? `(${d.slice(0, 2)}) ${d.slice(2)}`
-        : d.length <= 10 ? `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`
-        : `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+  /* ============================ SLIDESHOW DO HERO ============================ */
+  // Só no desktop. No celular o arco tem ~350px e as sete fotos extras custariam
+  // meio mega de dados para caber num espaço onde mal se percebe a troca.
+  // 900px é o mesmo corte em que o <picture> serve o hero-sm.
+  const palco = matchMedia('(min-width:901px)').matches ? $('[data-slides]') : null;
+  if (palco) {
+    const slides = $$('.hero__slide', palco);
+    // as fotos 2..8 só entram depois do load: não competem com o LCP da primeira
+    const carregar = () => slides.forEach((s) => {
+      const src = s.dataset.src;
+      if (src) { s.src = src; delete s.dataset.src; }
     });
+    if (document.readyState === 'complete') carregar();
+    else addEventListener('load', carregar, { once: true });
 
-    const valida = (el) => {
-      const v = el.value.trim();
-      let ok = true;
-      if (el.hasAttribute('required') && !v) ok = false;
-      if (ok && el.type === 'email' && v) ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
-      if (ok && el.id === 'fone' && v) ok = v.replace(/\D/g, '').length >= 10;
-      campo(el)?.toggleAttribute('data-invalid', !ok);
-      return ok;
-    };
-
-    $$('#nome,#fone,#email,#tipo', form).forEach((el) => {
-      el.addEventListener('blur', () => valida(el));
-      el.addEventListener('input', () => { if (campo(el)?.hasAttribute('data-invalid')) valida(el); });
-    });
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (form.apelido.value) return;                       // isca anti-robô
-
-      const obrig = $$('#nome,#fone,#email,#tipo', form);
-      const todosOk = obrig.map(valida).every(Boolean);
-      if (!todosOk) {
-        const primeiro = form.querySelector('[data-invalid] input,[data-invalid] select');
-        primeiro?.focus({ preventScroll: true });
-        primeiro?.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' });
-        $('#status').textContent = 'Confira os campos destacados antes de enviar.';
-        return;
-      }
-
-      const d = Object.fromEntries(new FormData(form).entries());
-      const linhas = [
-        'Olá, Elisângela! Vim pelo site e gostaria de um orçamento.', '',
-        `Nome: ${d.nome}`,
-        `WhatsApp: ${d.fone}`,
-        `E-mail: ${d.email}`,
-        d.cidade ? `Cidade: ${d.cidade}` : null,
-        `Tipo de projeto: ${d.tipo}`,
-        d.msg ? `\nSobre o projeto:\n${d.msg}` : null,
-      ].filter(Boolean);
-      const texto = linhas.join('\n');
-
-      const botao = $('#enviar');
-      botao.disabled = true;
-      $('#status').textContent = 'Enviando…';
-
-      if (ENDPOINT) {
-        try {
-          await fetch(ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-            body: JSON.stringify({ ...d, mensagem: texto }),
-          });
-        } catch (_) { /* segue para a ponte mesmo assim */ }
-      }
-
-      try { sessionStorage.setItem('elis_msg', texto); } catch (_) {}
-      location.href = 'obrigado.html?c=form';
-    });
+    if (slides.length > 1 && !reduce) {
+      let i = 0, timer = null;
+      const passo = () => {
+        slides[i].classList.remove('is-on');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('is-on');
+      };
+      const liga  = () => { timer ||= setInterval(passo, 4600); };
+      const pausa = () => { clearInterval(timer); timer = null; };
+      // para de girar fora da tela e em aba oculta, para não gastar bateria à toa
+      new IntersectionObserver(
+        ([e]) => (e.isIntersecting ? liga() : pausa()),
+        { threshold: 0.25 }
+      ).observe(palco);
+      document.addEventListener('visibilitychange', () => (document.hidden ? pausa() : liga()));
+    }
   }
 
   /* ============================ MIUDEZAS ============================ */
