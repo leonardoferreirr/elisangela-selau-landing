@@ -285,7 +285,7 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
   font-size:clamp(1.5rem,2.5vw,2.15rem); font-weight:300; line-height:1.26;
   letter-spacing:-.015em; margin-bottom:1.6rem;
 }
-.stats{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.6rem; padding-top:2rem; border-top:1px solid var(--line)}
+.stats{display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:2.6rem; padding-top:2rem; border-top:1px solid var(--line)}
 .stats dt{font-family:var(--serif); font-weight:200; font-size:clamp(2.4rem,4.5vw,3.4rem); line-height:1; color:var(--bronze-deep)}
 .stats dd{margin:.55rem 0 0; font-size:.8rem; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); line-height:1.4}
 .studio__media{display:grid; gap:1rem; grid-template-columns:1fr 1fr; align-items:start}
