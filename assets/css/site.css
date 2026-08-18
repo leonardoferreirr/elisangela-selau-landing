@@ -331,15 +331,6 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
 }
 
 /* ---------- projetos ---------- */
-.filters{display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:clamp(1.75rem,3vw,2.5rem)}
-.filters button{
-  padding:.6rem 1.15rem; background:none; border:1px solid var(--line); border-radius:999px;
-  font-size:.8rem; font-weight:600; letter-spacing:.05em; color:var(--muted); cursor:pointer;
-  transition:color .35s var(--ease), border-color .35s var(--ease), background .35s var(--ease);
-}
-.filters button:hover{color:var(--ink); border-color:var(--bronze)}
-.filters button[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:var(--paper-2)}
-
 /* quatro por linha: encurta a seção sem achatar as fotos */
 .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:clamp(.85rem,1.6vw,1.5rem); align-items:start}
 .card{position:relative; grid-column:span 3; margin:0}

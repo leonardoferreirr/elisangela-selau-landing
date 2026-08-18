@@ -102,19 +102,6 @@
     } else montar();
   }
 
-  /* ============================ FILTRO DA GALERIA ============================ */
-  const filtros = $$('.filters button');
-  const cards = $$('#galeria .card');
-  filtros.forEach((b) => b.addEventListener('click', () => {
-    const f = b.dataset.f;
-    filtros.forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
-    cards.forEach((c) => {
-      const mostra = f === 'todos' || c.dataset.cat === f;
-      c.hidden = !mostra;
-      if (mostra) { c.classList.remove('is-in'); requestAnimationFrame(() => c.classList.add('is-in')); }
-    });
-  }));
-
   /* ============================ FORMULÁRIO ============================ */
   const form = $('#form');
   if (form) {
