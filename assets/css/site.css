@@ -443,8 +443,7 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
    para o dedo, e é justamente por aqui que o contato acontece no celular.
    O padding sobe a área de toque para ~39px; a lista compensa no gap, então
    o rodapé não muda de altura. */
-.foot__contato{display:grid; gap:.15rem}
-.foot__contato a{display:inline-flex; align-items:center; gap:.6rem; padding-block:.44rem}
+.foot__contato a{gap:.6rem}
 .foot__contato svg{flex:none; opacity:.75; transition:opacity .35s var(--ease)}
 .foot__contato a:hover svg{opacity:1}
 
@@ -454,8 +453,11 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
 .foot__logo{color:var(--paper-2); width:clamp(200px,22vw,282px); margin-bottom:1.5rem}
 .foot__top p{max-width:32ch; font-size:.95rem; line-height:1.66}
 .foot h3{font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(244,240,233,.62); margin:0 0 1.1rem}
-.foot li + li{margin-top:.6rem}
-.foot a{font-size:.95rem; overflow-wrap:anywhere; transition:color .35s var(--ease)}
+/* mesma troca da lista de contato: o link cresce, a margem encolhe na mesma
+   medida. Os itens de navegação tinham 19px de altura de toque. */
+.foot li + li{margin-top:.05rem}
+.foot a{font-size:.95rem; overflow-wrap:anywhere; transition:color .35s var(--ease);
+  display:inline-flex; align-items:center; padding-block:.45rem}
 .foot a:hover{color:var(--bronze)}
 .foot__bot{
   display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem;
