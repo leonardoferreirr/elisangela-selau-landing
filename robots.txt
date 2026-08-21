@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /obrigado
 
-Sitemap: https://www.elisangelaselauarquitetura.com/sitemap.xml
+Sitemap: https://www.elisangelaselauarquitetura.com.br/sitemap.xml

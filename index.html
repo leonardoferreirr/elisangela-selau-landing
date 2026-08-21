@@ -4,6 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<!-- A foto do hero e as fontes vêm antes do GTM de propósito: com o GTM em
+     primeiro o navegador enfileirava o gtm.js na frente do preload e a foto
+     do topo só começava a baixar meio segundo depois. -->
+<link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width:901px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero-sm.webp" media="(max-width:900px)" fetchpriority="high">
+<link rel="preload" href="assets/fonts/mulish.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -14,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <title>Elisângela Selau Arquitetura | Projetos em Caxias do Sul, RS</title>
 <meta name="description" content="Escritório de arquitetura em Caxias do Sul, RS. Projetos residenciais e prediais, design de interiores, projetos comerciais e regularização de obras. Atuação desde 2005.">
-<link rel="canonical" href="https://www.elisangelaselauarquitetura.com/">
+<link rel="canonical" href="https://www.elisangelaselauarquitetura.com.br/">
 <meta name="theme-color" content="#F4F0E9">
 
 <meta property="og:type" content="website">
@@ -22,25 +34,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:site_name" content="Elisângela Selau Arquitetura">
 <meta property="og:title" content="Elisângela Selau Arquitetura | Projetos em Caxias do Sul, RS">
 <meta property="og:description" content="Arquitetura, interiores e regularização de obras em Caxias do Sul. Projetos autorais desde 2005.">
-<meta property="og:url" content="https://www.elisangelaselauarquitetura.com/">
-<meta property="og:image" content="https://www.elisangelaselauarquitetura.com/assets/img/wide-living.webp">
+<meta property="og:url" content="https://www.elisangelaselauarquitetura.com.br/">
+<meta property="og:image" content="https://www.elisangelaselauarquitetura.com.br/assets/img/wide-living.webp">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-<link rel="preload" href="assets/fonts/mulish.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width:901px)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/img/hero-sm.webp" media="(max-width:900px)" fetchpriority="high">
-<link rel="stylesheet" href="assets/css/site.css">
-
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Elisângela Selau Arquitetura",
 "description":"Escritório de arquitetura e urbanismo em Caxias do Sul, RS. Projetos residenciais e prediais, design de interiores, projetos comerciais e regularização de obras.",
-"url":"https://www.elisangelaselauarquitetura.com/","telephone":"+5554984026936",
-"email":"elisangelaselauarquitetura@gmail.com","image":"https://www.elisangelaselauarquitetura.com/assets/img/wide-living.webp",
+"url":"https://www.elisangelaselauarquitetura.com.br/","telephone":"+5554984026936",
+"email":"elisangelaselauarquitetura@gmail.com","image":"https://www.elisangelaselauarquitetura.com.br/assets/img/wide-living.webp",
 "foundingDate":"2005","priceRange":"$$$",
 "address":{"@type":"PostalAddress","addressLocality":"Caxias do Sul","addressRegion":"RS","addressCountry":"BR"},
 "areaServed":{"@type":"Place","name":"Serra Gaúcha, Rio Grande do Sul"},
@@ -122,7 +128,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <path d="M150 1c82.3 0 149 66.7 149 149v250H1V150C1 67.7 67.7 1 150 1Z"
               stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke" style="--len:1200"/>
       </svg>
-      <figure class="arch hero__arch" data-mask data-slides>
+      <figure class="arch hero__arch" data-slides>
         <picture>
           <source media="(max-width:900px)" srcset="assets/img/hero-sm.webp">
           <img class="hero__slide is-on" src="assets/img/hero.webp" width="1080" height="1440" fetchpriority="high" decoding="async"

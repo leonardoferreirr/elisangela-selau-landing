@@ -222,6 +222,20 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
   opacity:0; transition:opacity 1.1s var(--ease)}
 .hero__slide.is-on{opacity:1}
 .hero__arch picture{position:absolute; inset:0}
+
+/* A foto do hero é o elemento de LCP, e por isso ela não é revelada por corte.
+   Duas razões: com [data-mask] o corte só abria quando o site.js carregava e o
+   IntersectionObserver disparava (1,8s de render delay numa imagem que já
+   estava baixada em 60ms), e mesmo animado em CSS o clip-path esconde área
+   pintada, que é justamente o que a métrica mede. Sobra o zoom, que roda em
+   transform e não altera o que o navegador considera pintado.
+   As seções abaixo da dobra continuam entrando por [data-mask]: lá o corte
+   não custa nada porque nenhuma delas disputa o LCP. */
+.hero__arch > picture > img{animation:heroAproxima 1.6s var(--ease) both}
+@keyframes heroAproxima{from{transform:scale(1.1)} to{transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .hero__arch > picture > img{animation:none}
+}
 @media (prefers-reduced-motion:reduce){
   .hero__slide{transition:none}
 }
@@ -229,8 +243,21 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
   content:''; position:absolute; inset:0; border-radius:inherit;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.22); pointer-events:none;
 }
-/* moldura deslocada, desenhada */
-.hero__frame{position:relative}
+/* moldura deslocada, desenhada.
+   O SVG é medido em % do .hero__frame, mas a foto tem max-width e fica
+   centrada dentro dele. Sempre que os dois divergiam, o arco desenhado
+   nascia maior que a foto e sobrava para fora: 691px de arco contra 440px
+   de foto no tablet, 600 contra 501 no desktop. O frame agora usa o mesmo
+   teto de largura da foto, então os dois nascem do mesmo retângulo.
+   O width:100% é obrigatório: margin-inline:auto desliga o stretch do grid,
+   e sem largura explícita o frame cai para fit-content, que aqui é zero,
+   porque tudo dentro dele é absoluto ou medido em %. */
+.hero__frame{
+  position:relative;
+  width:100%;
+  max-width:min(100%, 548px, calc((100vh - 14.5rem) * .75));
+  margin-inline:auto;
+}
 .hero__frame svg{
   /* mesmo tamanho da imagem, deslocado: só a aresta de cima e a da esquerda
      aparecem, o resto fica escondido atrás da foto */
@@ -243,7 +270,7 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
 
 @media (max-width:900px){
   .hero__grid{grid-template-columns:1fr; gap:2.75rem}
-  .hero__arch{max-width:min(100%,440px)}
+  .hero__arch,.hero__frame{max-width:min(100%,440px)}
   .hero__title{font-size:clamp(2.6rem,11vw,3.6rem)}
 }
 
@@ -412,7 +439,12 @@ section[id],main[id]{scroll-margin-top:clamp(4.5rem,9vh,6.5rem)}
 .zap-ico{flex:none}
 
 /* lista de contato do rodapé: ícone e texto na mesma linha de base */
-.foot__contato a{display:inline-flex; align-items:center; gap:.6rem}
+/* telefone, e-mail e Instagram ficavam com 25px de altura: pequeno demais
+   para o dedo, e é justamente por aqui que o contato acontece no celular.
+   O padding sobe a área de toque para ~39px; a lista compensa no gap, então
+   o rodapé não muda de altura. */
+.foot__contato{display:grid; gap:.15rem}
+.foot__contato a{display:inline-flex; align-items:center; gap:.6rem; padding-block:.44rem}
 .foot__contato svg{flex:none; opacity:.75; transition:opacity .35s var(--ease)}
 .foot__contato a:hover svg{opacity:1}
 

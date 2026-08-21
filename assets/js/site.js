@@ -18,9 +18,23 @@
 
   /* ============================ NAV ============================ */
   const nav = $('#nav');
-  const stick = () => nav.toggleAttribute('data-stuck', scrollY > 24);
-  stick();
-  addEventListener('scroll', stick, { passive: true });
+  // Ler scrollY dentro do handler força o layout a cada evento de rolagem:
+  // 123ms de reflow acumulado na medição. Uma sentinela de 24px no topo da
+  // página resolve o mesmo com zero trabalho na thread principal.
+  const sentinela = document.createElement('div');
+  sentinela.setAttribute('aria-hidden', 'true');
+  sentinela.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:24px;pointer-events:none';
+  document.body.prepend(sentinela);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(
+      ([e]) => nav.toggleAttribute('data-stuck', !e.isIntersecting),
+      { threshold: 0 }
+    ).observe(sentinela);
+  } else {
+    const stick = () => nav.toggleAttribute('data-stuck', scrollY > 24);
+    stick();
+    addEventListener('scroll', stick, { passive: true });
+  }
 
   const burger = $('#burger');
   const drawer = $('#drawer');
@@ -108,6 +122,12 @@
   // meio mega de dados para caber num espaço onde mal se percebe a troca.
   // 900px é o mesmo corte em que o <picture> serve o hero-sm.
   const palco = matchMedia('(min-width:901px)').matches ? $('[data-slides]') : null;
+  if (!palco) {
+    // no celular as sete fotos extras nunca ganham src: ficavam sete <img>
+    // vazias de 350x467 empilhadas em cima da foto do hero, invisíveis mas
+    // ocupando nó e leitura de acessibilidade à toa.
+    $$('.hero__slide[data-src]').forEach((s) => s.remove());
+  }
   if (palco) {
     const slides = $$('.hero__slide', palco);
     // as fotos 2..8 só entram depois do load: não competem com o LCP da primeira
