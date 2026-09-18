@@ -1,5 +1,5 @@
-/* Elisângela Selau Arquitetura — formulário de duas etapas da landing page.
-   Só a landing page carrega este arquivo. */
+/* Elisângela Selau Arquitetura — formulário de duas etapas, o único canal de
+   contato do site. */
 (() => {
   'use strict';
 
@@ -15,7 +15,7 @@
 
   // A página de agradecimento precisa ter "/obrigado" no endereço: é o que o
   // GTM usa para disparar as duas conversões do Google Ads.
-  const OBRIGADO = 'obrigado-lp';
+  const OBRIGADO = 'obrigado';
   const CHAVE_MSG = 'elis_lp_msg';
   const CHAVE_LEAD = 'elis_lp_lead';
   const CHAVE_ORIGEM = 'elis_origem';

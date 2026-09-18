@@ -1,8 +1,7 @@
 @charset "utf-8";
 
 /* ============================================================
-   Formulário de duas etapas. Só a landing page carrega este arquivo;
-   o site principal continua com o site.css sozinho.
+   Formulário de duas etapas: o único canal de contato do site.
    ============================================================ */
 
 #formulario{background:var(--paper-2); border-top:1px solid var(--line-soft)}

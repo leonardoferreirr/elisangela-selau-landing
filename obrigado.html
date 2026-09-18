@@ -3,15 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5HN8STRT');</script>
-<!-- End Google Tag Manager -->
-
+<!-- Agradecimento do formulário. O GTM dispara as duas conversões do Google Ads
+     em qualquer página cujo endereço contenha "/obrigado". Aqui ele só é
+     carregado quando existe um pedido de verdade na sessão, então visita direta
+     não conta conversão nem abre o WhatsApp. -->
 <title>Pedido enviado | Elisângela Selau Arquitetura</title>
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#F4F0E9">
@@ -35,22 +30,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HN8STRT"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <main class="ty">
   <div class="ty__inner">
-    <a class="brand" href="index.html" aria-label="Elisângela Selau Arquitetura"></a>
-    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
-    <h1>Pedido enviado.</h1>
+    <a class="brand" href="./" aria-label="Elisângela Selau Arquitetura"></a>
+    <div class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h1 id="titulo">Pedido enviado.</h1>
     <p id="txt">Estamos abrindo o seu WhatsApp com a mensagem já preenchida. É só tocar em enviar.</p>
     <div class="ty__acoes">
-      <a class="btn" id="ir" href="#">
-        Abrir o WhatsApp agora
+      <a class="btn" id="ir" href="./#formulario">
+        <span id="ir-txt">Abrir o WhatsApp agora</span>
         <svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg>
       </a>
-      <a class="btn btn--ghost" href="index.html">Voltar ao site</a>
+      <a class="btn btn--ghost" id="voltar" href="./">Voltar ao site</a>
     </div>
   </div>
 </main>
@@ -58,23 +49,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 (() => {
   const WHATS = '5554984026936';
-  const ctx = new URLSearchParams(location.search).get('c') || 'site';
+  const GTM = 'GTM-5HN8STRT';
+  const $ = (id) => document.getElementById(id);
+  const ctx = (new URLSearchParams(location.search).get('c') || 'formulario').replace(/[^a-z0-9_-]/gi, '').slice(0, 24);
 
-  let texto = '';
-  try { texto = sessionStorage.getItem('elis_msg') || ''; sessionStorage.removeItem('elis_msg'); } catch (_) {}
-  if (!texto) texto = 'Olá, Elisângela! Vim pelo site e gostaria de conversar sobre um projeto.';
+  // o pedido chega pela sessão (nunca pela URL); window.name é a reserva
+  let msg = '', lead = {};
+  try {
+    msg = sessionStorage.getItem('elis_lp_msg') || '';
+    lead = JSON.parse(sessionStorage.getItem('elis_lp_lead') || '{}');
+    sessionStorage.removeItem('elis_lp_msg');
+    sessionStorage.removeItem('elis_lp_lead');
+  } catch (_) {}
+  if (window.name.indexOf('elis_lp:') === 0) {
+    if (!msg) {
+      try { const p = JSON.parse(window.name.slice(8)); msg = p.msg || ''; lead = p.lead || {}; } catch (_) {}
+    }
+    window.name = '';
+  }
 
-  const destino = `https://wa.me/${WHATS}?text=${encodeURIComponent(texto)}`;
-  document.getElementById('ir').href = destino;
+  if (!msg) {
+    // Sem formulário preenchido: nada de WhatsApp e nada de conversão.
+    $('dots').remove();
+    $('titulo').textContent = 'Falta preencher o formulário.';
+    $('txt').textContent = 'Para falar com o escritório, preencha o formulário da página. Leva menos de um minuto.';
+    $('ir-txt').textContent = 'Ir para o formulário';
+    $('voltar').remove();
+    return;
+  }
+
+  const destino = `https://wa.me/${WHATS}?text=${encodeURIComponent(msg)}`;
+  $('ir').href = destino;
+
+  // Redireciona quando as tags do GTM terminarem (eventCallback), com 0,9s de
+  // tela mínima para a página não só piscar e teto de 2,6s para quando um
+  // bloqueador impede o GTM e o callback nunca vem.
+  const reduzir = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const inicio = Date.now();
+  let prontas = false, partiu = false;
+  const vai = () => { if (partiu || reduzir) return; partiu = true; location.replace(destino); };
+  const tenta = () => { if (prontas && Date.now() - inicio >= 900) vai(); };
 
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: 'conversao_orcamento', contexto: ctx });
+  window.dataLayer.push({
+    'gtm.start': new Date().getTime(), event: 'gtm.js',
+    eventCallback: () => { prontas = true; tenta(); }, eventTimeout: 2000
+  });
+  window.dataLayer.push({ event: 'conversao_orcamento', contexto: ctx, ...lead });
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = `https://www.googletagmanager.com/gtm.js?id=${GTM}`;
+  document.head.appendChild(s);
 
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    setTimeout(() => location.replace(destino), 1800);
+  if (reduzir) {
+    $('txt').textContent = 'Recebemos o seu pedido. Toque no botão abaixo para abrir o WhatsApp com a mensagem pronta.';
   } else {
-    document.getElementById('txt').textContent =
-      'Recebemos o seu pedido. Toque no botão abaixo para abrir o WhatsApp com a mensagem pronta.';
+    setTimeout(tenta, 900);
+    setTimeout(vai, 2600);
   }
 })();
 </script>

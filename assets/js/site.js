@@ -7,13 +7,9 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ------------------------------------------------------------------
-     Não há formulário: todo CTA vai para obrigado?c=<seção>, que dispara
-     a conversão e redireciona para o WhatsApp do escritório. O número
-     mora em obrigado.html, num lugar só.
-
-     O link é sem o .html de propósito: com cleanUrls ligado no
-     vercel.json, /obrigado.html redireciona para /obrigado e a query
-     se perde no caminho, levando junto o contexto da conversão.
+     O contato é só pelo formulário de duas etapas (formulario.js): todo
+     CTA desce para #formulario. O WhatsApp só abre depois do envio,
+     pela página /obrigado, e o número mora lá, num lugar só.
      ------------------------------------------------------------------ */
 
   /* ============================ NAV ============================ */
