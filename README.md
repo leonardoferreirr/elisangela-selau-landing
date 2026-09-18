@@ -56,6 +56,56 @@ levando junto o contexto. `obrigado?c=x` vai direto e preserva.
 
 O número de destino fica em `WHATS`, dentro de `obrigado.html`, num lugar só.
 
+## Landing page de teste (`/landing-page`)
+
+Teste B das campanhas: **o mesmo site, com o mesmo layout**, mas com um
+formulário de duas etapas no lugar do WhatsApp direto. O site principal (`/`)
+continua como está, com campanha rodando.
+
+| arquivo | papel |
+|---|---|
+| `landing-page.html` | **gerado**, não editar à mão |
+| `build-landing-page.py` | gera a landing a partir do `index.html` |
+| `src/lp-formulario.html` | a seção do formulário, injetada antes do rodapé |
+| `assets/css/lp-form.css`, `assets/js/lp-form.js` | só a landing carrega |
+| `obrigado-lp.html` | agradecimento da landing, abre o WhatsApp |
+
+**Mudou o `index.html`? Rode `python3 build-landing-page.py`** e a landing
+acompanha. Cada troca do script confere quantas vezes aconteceu: se a estrutura
+do `index.html` mudar, ele para com erro em vez de gerar cópia quebrada.
+
+O que a cópia tem de diferente: os botões "Quero conversar sobre meu projeto"
+descem para `#formulario`; sai o ícone do WhatsApp; saem o telefone do menu e o
+telefone e o e-mail do rodapé (fica "Solicitar atendimento" e o Instagram); a
+página é `noindex` e não tem JSON-LD, porque é cópia do site e só recebe
+tráfego pago.
+
+**Etapa 1** pergunta "Como podemos ajudar você?". As opções 5 (fornecedor ou
+parceria) e 6 (emprego ou estágio) param ali, com a mensagem de que o canal é
+exclusivo para clientes. A 5 mostra `parcerias@elisangelaselauarquitetura.com.br`.
+Nenhuma das duas chega no formulário nem no WhatsApp.
+
+**Etapa 2** é o pedido. O envio monta a mensagem do WhatsApp, guarda na sessão
+(nunca na URL) e vai para `obrigado-lp`, que abre o WhatsApp.
+
+**Conversão.** O GTM dispara as duas conversões do Google Ads em qualquer página
+cujo endereço contenha `/obrigado`, e `/obrigado-lp` contém. Só que ali o GTM só
+é carregado quando existe um pedido de verdade na sessão: quem abre o endereço
+direto não conta conversão e é mandado de volta ao formulário. O redirecionamento
+espera o GTM terminar (0,9s mínimo, 2,6s no máximo se um bloqueador segurar).
+
+**Origem da campanha.** `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`,
+`utm_content`, `gclid`, `gbraid`, `wbraid` e `fbclid` são guardados ao chegar
+(90 dias, o último clique vence) e vão em campos ocultos do formulário e no
+evento `conversao_orcamento` do dataLayer, sem nome nem telefone. **Para gravar
+cada pedido com a origem num lugar**, preencher `REGISTRO` no topo do
+`lp-form.js` (chave do Web3Forms ou URL que receba JSON). Vazio, o pedido existe
+só como a mensagem de WhatsApp.
+
+Eventos no dataLayer: `lp_triagem` (resposta da etapa 1, `qualificado`),
+`lp_formulario_enviado` e, no agradecimento, `conversao_orcamento` com
+`pagina: 'landing-page'`.
+
 ## Slideshow do hero
 
 Oito fotos em `assets/img/hero/`, com crossfade a cada 4,6s. A primeira é a do

@@ -1,0 +1,124 @@
+<!-- ============================ FORMULÁRIO ============================ -->
+<!-- Só existe na landing page. Etapa 1 filtra quem não é cliente (fornecedor,
+     parceiro, candidato a vaga): essas respostas não chegam no formulário nem no
+     WhatsApp. Etapa 2 é o pedido de atendimento. -->
+<section class="sec" id="formulario">
+  <div class="wrap lf">
+    <div class="lf__head">
+      <h2 class="sec__title" id="lf-titulo" data-rise>Como podemos ajudar você?</h2>
+    </div>
+
+    <div class="lf__body" data-rise data-d="1">
+
+      <!-- ETAPA 1: pergunta eliminatória -->
+      <div class="lf__passo" data-passo="1">
+        <ul class="lf__opcoes" aria-labelledby="lf-titulo">
+          <li><button type="button" class="lf__opcao" data-motivo="arquitetura"><span class="lf__n">01</span><span class="lf__txt">Quero contratar um projeto de arquitetura</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+          <li><button type="button" class="lf__opcao" data-motivo="interiores"><span class="lf__n">02</span><span class="lf__txt">Quero contratar um projeto de interiores</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+          <li><button type="button" class="lf__opcao" data-motivo="construcao"><span class="lf__n">03</span><span class="lf__txt">Estou construindo e preciso de um projeto</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+          <li><button type="button" class="lf__opcao" data-motivo="reforma"><span class="lf__n">04</span><span class="lf__txt">Estou reformando e preciso de um projeto</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+          <li><button type="button" class="lf__opcao" data-motivo="fornecedor"><span class="lf__n">05</span><span class="lf__txt">Quero oferecer produtos, serviços ou propor uma parceria</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+          <li><button type="button" class="lf__opcao" data-motivo="emprego"><span class="lf__n">06</span><span class="lf__txt">Estou procurando emprego ou estágio</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+        </ul>
+      </div>
+
+      <!-- BLOQUEIO: opções 5 e 6. Nada de formulário, nada de WhatsApp. -->
+      <div class="lf__passo lf__bloqueio" data-passo="bloqueio" tabindex="-1" hidden>
+        <p class="lf__aviso">Agradecemos o seu contato. Este canal é exclusivo para clientes interessados na contratação de projetos de arquitetura e interiores. Propostas comerciais, apresentação de produtos, currículos e solicitações de parceria não são atendidas por este formulário.</p>
+        <a class="lnk lf__email" href="mailto:parcerias@elisangelaselauarquitetura.com.br?subject=Proposta%20comercial" hidden>
+          parcerias@<wbr>elisangelaselauarquitetura.com.br
+          <svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+        <button type="button" class="lf__voltar" data-voltar>Voltar</button>
+      </div>
+
+      <!-- ETAPA 2: só para as opções 1 a 4 -->
+      <form class="form lf__passo" data-passo="2" id="lf-form" tabindex="-1" novalidate hidden>
+        <p class="lf__escolha"><span id="lf-escolha"></span><button type="button" class="lf__voltar" data-voltar>Alterar</button></p>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="lf-nome">Nome</label>
+            <input id="lf-nome" name="nome" type="text" autocomplete="name" placeholder="Como você se chama" required>
+            <span class="field__err">Preencha o seu nome.</span>
+          </div>
+          <div class="field">
+            <label for="lf-whats">WhatsApp</label>
+            <input id="lf-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(54) 90000-0000" required>
+            <span class="field__err">Informe um WhatsApp com DDD.</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="lf-cidade">Cidade onde será realizado o projeto</label>
+          <input id="lf-cidade" name="cidade" type="text" autocomplete="address-level2" placeholder="Ex.: Caxias do Sul" required>
+          <span class="field__err">Informe a cidade do projeto.</span>
+        </div>
+
+        <fieldset class="field lf__grupo">
+          <legend>Qual serviço você procura?</legend>
+          <div class="lf__chips">
+            <label><input type="radio" name="servico" value="Projeto arquitetônico" required><span>Projeto arquitetônico</span></label>
+            <label><input type="radio" name="servico" value="Projeto de interiores"><span>Projeto de interiores</span></label>
+            <label><input type="radio" name="servico" value="Projeto arquitetônico e interiores"><span>Projeto arquitetônico e interiores</span></label>
+            <label><input type="radio" name="servico" value="Reforma"><span>Reforma</span></label>
+            <label><input type="radio" name="servico" value="Ainda não sei"><span>Ainda não sei</span></label>
+          </div>
+          <span class="field__err">Escolha uma opção.</span>
+        </fieldset>
+
+        <fieldset class="field lf__grupo">
+          <legend>Qual é o tipo de imóvel?</legend>
+          <div class="lf__chips">
+            <label><input type="radio" name="imovel" value="Casa" required><span>Casa</span></label>
+            <label><input type="radio" name="imovel" value="Apartamento"><span>Apartamento</span></label>
+            <label><input type="radio" name="imovel" value="Espaço comercial"><span>Espaço comercial</span></label>
+            <label><input type="radio" name="imovel" value="Outro"><span>Outro</span></label>
+          </div>
+          <span class="field__err">Escolha uma opção.</span>
+        </fieldset>
+
+        <fieldset class="field lf__grupo">
+          <legend>Em qual momento você está?</legend>
+          <div class="lf__chips">
+            <label><input type="radio" name="momento" value="Pretendo começar imediatamente" required><span>Pretendo começar imediatamente</span></label>
+            <label><input type="radio" name="momento" value="Dentro dos próximos 3 meses"><span>Dentro dos próximos 3 meses</span></label>
+            <label><input type="radio" name="momento" value="Entre 3 e 6 meses"><span>Entre 3 e 6 meses</span></label>
+            <label><input type="radio" name="momento" value="Ainda estou pesquisando"><span>Ainda estou pesquisando</span></label>
+          </div>
+          <span class="field__err">Escolha uma opção.</span>
+        </fieldset>
+
+        <div class="field">
+          <label for="lf-sobre">Conte brevemente sobre o seu projeto</label>
+          <textarea id="lf-sobre" name="sobre" rows="4" placeholder="Metragem, etapa em que está e o que você espera do resultado."></textarea>
+        </div>
+
+        <!-- origem da campanha: preenchido pelo script, invisível para o visitante -->
+        <input type="hidden" name="motivo">
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="gclid">
+        <input type="hidden" name="gbraid">
+        <input type="hidden" name="wbraid">
+        <input type="hidden" name="fbclid">
+        <input type="hidden" name="pagina_entrada">
+        <input type="hidden" name="referencia">
+        <!-- isca para robô: gente não vê nem preenche -->
+        <input class="hp" type="text" name="apelido" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form__foot">
+          <button class="btn" type="submit">
+            Solicitar atendimento
+            <svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
+        </div>
+        <p class="sr-only" role="status" aria-live="polite" id="lf-status"></p>
+      </form>
+
+    </div>
+  </div>
+</section>

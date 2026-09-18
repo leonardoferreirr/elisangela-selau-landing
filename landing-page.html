@@ -1,0 +1,636 @@
+<!doctype html>
+<!-- GERADO por build-landing-page.py a partir do index.html. Não editar à mão: editar o index.html ou src/lp-formulario.html e rodar o script. -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- A foto do hero e as fontes vêm antes do GTM de propósito: com o GTM em
+     primeiro o navegador enfileirava o gtm.js na frente do preload e a foto
+     do topo só começava a baixar meio segundo depois. -->
+<link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width:901px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero-sm.webp" media="(max-width:900px)" fetchpriority="high">
+<link rel="preload" href="assets/fonts/mulish.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/lp-form.css">
+
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5HN8STRT');</script>
+<!-- End Google Tag Manager -->
+
+<title>Elisângela Selau Arquitetura | Projetos em Caxias do Sul, RS</title>
+<meta name="description" content="Escritório de arquitetura em Caxias do Sul, RS. Projetos residenciais e prediais, design de interiores, projetos comerciais e regularização de obras. Atuação desde 2005.">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#F4F0E9">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Elisângela Selau Arquitetura">
+<meta property="og:title" content="Elisângela Selau Arquitetura | Projetos em Caxias do Sul, RS">
+<meta property="og:description" content="Arquitetura, interiores e regularização de obras em Caxias do Sul. Projetos autorais desde 2005.">
+<meta property="og:url" content="https://www.elisangelaselauarquitetura.com.br/landing-page">
+<meta property="og:image" content="https://www.elisangelaselauarquitetura.com.br/assets/img/wide-living.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HN8STRT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="sr-only" href="#projetos">Pular para os projetos</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a class="nav__logo brand" href="#topo" aria-label="Elisângela Selau Arquitetura, início"></a>
+  <nav class="nav__menu" aria-label="Principal">
+    <a href="#estudio">Estúdio</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#processo">Processo</a>
+    <a href="#formulario">Contato</a>
+  </nav>
+  <a class="btn nav__cta" href="#formulario" data-cta="nav">
+          Quero conversar sobre meu projeto
+  </a>
+  <button class="nav__burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="drawer" id="drawer">
+  <a href="#estudio" style="--i:0">Estúdio</a>
+  <a href="#servicos" style="--i:1">Serviços</a>
+  <a href="#projetos" style="--i:2">Projetos</a>
+  <a href="#processo" style="--i:3">Processo</a>
+  <a href="#elis" style="--i:4">A arquiteta</a>
+  <a href="#formulario" style="--i:5">Contato</a>
+  <a class="btn" href="#formulario" data-cta="menu" style="--i:6">Quero conversar sobre meu projeto</a>
+  <div class="drawer__foot">
+    <span>Caxias do Sul, RS</span>
+  </div>
+</div>
+
+<main id="topo">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" data-reveal>
+  <div class="wrap hero__grid">
+    <div>
+      <h1 class="hero__title">
+        <span class="kin"><span>Projetamos para</span></span>
+        <span class="kin"><span>você <em class="italic">viver bem</em></span></span>
+      </h1>
+      <p class="hero__lead" data-rise data-d="2">
+        Arquitetura, interiores e regularização de obras em Caxias do Sul. Desde 2005,
+        projetos pensados para a rotina de quem vai morar, não só para a foto.
+      </p>
+      <div class="hero__actions" data-rise data-d="3">
+        <a class="btn" href="#formulario" data-cta="hero">
+          Quero conversar sobre meu projeto
+        </a>
+        <a class="btn btn--ghost" href="#projetos">Ver projetos</a>
+      </div>
+    </div>
+
+    <div class="hero__frame" data-draw>
+      <svg viewBox="0 0 300 400" preserveAspectRatio="none" fill="none" aria-hidden="true">
+        <path d="M150 1c82.3 0 149 66.7 149 149v250H1V150C1 67.7 67.7 1 150 1Z"
+              stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke" style="--len:1200"/>
+      </svg>
+      <figure class="arch hero__arch" data-slides>
+        <picture>
+          <source media="(max-width:900px)" srcset="assets/img/hero-sm.webp">
+          <img class="hero__slide is-on" src="assets/img/hero.webp" width="1080" height="1440" fetchpriority="high" decoding="async"
+               alt="Sala de jantar integrada à cozinha, com mesa de madeira, pendentes de cobre e parede em pedra natural.">
+        </picture>
+        <!-- as demais entram por JS depois do load, para não competir com o LCP -->
+        <img class="hero__slide" data-src="assets/img/hero/s2-lavabo.webp"     width="900" height="1200" decoding="async" alt="" aria-hidden="true">
+        <img class="hero__slide" data-src="assets/img/hero/s3-onix.webp"       width="900" height="1200" decoding="async" alt="" aria-hidden="true">
+        <img class="hero__slide" data-src="assets/img/hero/s4-gourmet.webp"    width="900" height="1200" decoding="async" alt="" aria-hidden="true">
+        <img class="hero__slide" data-src="assets/img/hero/s5-dormitorio.webp" width="900" height="1200" decoding="async" alt="" aria-hidden="true">
+        <img class="hero__slide" data-src="assets/img/hero/s6-mesa.webp"       width="900" height="1200" decoding="async" alt="" aria-hidden="true">
+        <img class="hero__slide" data-src="assets/img/hero/s7-corredor.webp"   width="900" height="1200" decoding="async" alt="" aria-hidden="true">
+        <img class="hero__slide" data-src="assets/img/hero/s8-recepcao.webp"   width="900" height="1200" decoding="async" alt="" aria-hidden="true">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FITA ============================ -->
+<div class="ticker" aria-hidden="true">
+  <ul class="ticker__track" id="ticker">
+    <li>Projetos residenciais</li><li>Design de interiores</li><li>Projetos comerciais</li>
+    <li>Regularização de obras</li><li>Projetos prediais</li><li>Consultoria técnica</li>
+  </ul>
+</div>
+
+<!-- ============================ ESTÚDIO ============================ -->
+<section class="sec" id="estudio">
+  <div class="wrap studio">
+    <div class="studio__text">
+      <h2 class="serif studio-lead" data-rise>Cada projeto começa pelo jeito que a família vive, e só depois vira planta.</h2>
+      <p data-rise data-d="1">
+        O escritório Elisângela Selau Arquitetura atua desde 2005 em Caxias do Sul, com projetos de
+        arquitetura e urbanismo, design de interiores e regularização de obras. São mais de duas décadas
+        acompanhando obra de perto, e isso muda o desenho.
+      </p>
+      <p data-rise data-d="2">
+        O trabalho vai do estudo inicial ao acompanhamento da execução, com detalhamento técnico completo
+        e escolha de materiais decidida junto com você. O resultado é um projeto que cabe no terreno,
+        na rotina e no orçamento.
+      </p>
+      <dl class="stats" data-rise data-d="3">
+        <div><dt><span class="kin"><span>+20</span></span></dt><dd>Anos de experiência</dd></div>
+        <div><dt><span class="kin"><span>+1000</span></span></dt><dd>Projetos entregues</dd></div>
+      </dl>
+      <div style="margin-top:clamp(2rem,4vw,2.75rem)" data-rise>
+        <a class="btn" href="#formulario" data-cta="estudio">
+          Quero conversar sobre meu projeto
+        </a>
+      </div>
+    </div>
+
+    <div class="studio__media">
+      <figure>
+        <div class="arch" data-mask>
+          <img src="assets/img/projetos/dormitorio-ripado.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Dormitório com cabeceira em madeira ripada, iluminação embutida e closet integrado.">
+        </div>
+      </figure>
+      <figure>
+        <div class="arch" data-mask>
+          <img src="assets/img/projetos/buffet-ripado.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Buffet em marcenaria ripada com espelho, luminárias de mesa e objetos de decoração.">
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAIXA CHEIA ============================ -->
+<section class="band" aria-label="Residência em travertino e madeira">
+  <div class="band__media" data-parallax>
+    <picture>
+      <source media="(max-width:760px)" srcset="assets/img/wide-living-sm.webp">
+      <img src="assets/img/wide-living.webp" width="1600" height="900" loading="lazy" decoding="async"
+           alt="Living com lareira acesa, parede em pedra natural, marcenaria suspensa e adega envidraçada.">
+    </picture>
+  </div>
+  <div class="band__inner" data-rise>
+    <blockquote class="band__quote">
+      A casa boa é a que responde à rotina de quem mora nela.
+      <cite class="band__cite">Elisângela Selau Arquitetura</cite>
+    </blockquote>
+    <a class="btn btn--onphoto" href="#formulario" data-cta="faixa">
+          Quero conversar sobre meu projeto
+    </a>
+  </div>
+</section>
+
+<!-- ============================ SERVIÇOS ============================ -->
+<section class="sec" id="servicos">
+  <div class="wrap">
+    <div class="sec__head">
+      <h2 class="sec__title" data-rise>O que o escritório faz</h2>
+      <p class="sec__intro" data-rise data-d="1">
+        Quatro frentes de trabalho que podem vir juntas ou separadas, do primeiro estudo até a
+        aprovação na prefeitura.
+      </p>
+    </div>
+
+    <ul class="svc">
+      <li class="svc__item" data-rise>
+        <span class="svc__n">01</span>
+        <h3 class="svc__name">Projetos residenciais e prediais</h3>
+        <p class="svc__desc">Casas, apartamentos e edifícios, do estudo de implantação ao projeto executivo,
+          com todos os detalhamentos que a obra precisa para sair do papel sem improviso.</p>
+      </li>
+      <li class="svc__item" data-rise data-d="1">
+        <span class="svc__n">02</span>
+        <h3 class="svc__name">Design de interiores</h3>
+        <p class="svc__desc">Layout, marcenaria sob medida, iluminação e acabamentos. O ambiente resolvido
+          no detalhe antes do primeiro orçamento com o marceneiro.</p>
+      </li>
+      <li class="svc__item" data-rise data-d="2">
+        <span class="svc__n">03</span>
+        <h3 class="svc__name">Projetos comerciais</h3>
+        <p class="svc__desc">Lojas, escritórios e espaços gourmet desenhados para a operação do dia a dia
+          e para a experiência de quem entra.</p>
+      </li>
+      <li class="svc__item" data-rise data-d="3">
+        <span class="svc__n">04</span>
+        <h3 class="svc__name">Regularização de obras e consultoria</h3>
+        <p class="svc__desc">Aprovação em prefeitura, regularização de construções já existentes e
+          consultoria pontual para quem tem projeto em mãos e precisa de um olhar técnico.</p>
+      </li>
+    </ul>
+
+    <div style="margin-top:clamp(2rem,4vw,3rem);text-align:center" data-rise>
+      <a class="btn" href="#formulario" data-cta="servicos">
+          Quero conversar sobre meu projeto
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROJETOS ============================ -->
+<section class="sec" id="projetos">
+  <div class="wrap">
+    <div class="sec__head">
+      <h2 class="sec__title" data-rise>Projetos</h2>
+      <p class="sec__intro" data-rise data-d="1">
+        Uma seleção do que sai do escritório, entre residências, ambientes internos e espaços comerciais.
+      </p>
+    </div>
+
+    <div class="grid" id="galeria">
+      <div class="card card--wide">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/loja-oliveira.webp" width="1400" height="900" loading="lazy" decoding="async"
+               alt="Loja de roupas com oliveira central, araras em latão e iluminação em trilho.">
+        </div>
+      </div>
+
+      <div class="card card--arch">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/lavabo-cortica.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Lavabo com parede em cortiça, arco curvo em madeira retroiluminado e cuba esculpida em mármore.">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/sala-jantar.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Sala de jantar com mesa redonda em mármore, cadeiras estofadas e pé-direito duplo.">
+        </div>
+      </div>
+
+      <div class="card card--arch">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/gourmet-industrial.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Espaço gourmet com concreto aparente, churrasqueira, ilha e banquetas.">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/recepcao-neon.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Recepção corporativa com letreiro em neon, mezanino e salas envidraçadas.">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/buffet-ripado.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Buffet em marcenaria ripada com espelho, luminárias de mesa e objetos de decoração.">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/salao-banquetas.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Área social com bar, churrasqueira, parede em pedra e banquetas.">
+        </div>
+      </div>
+
+      <div class="card card--wide">
+        <div class="card__media" data-mask>
+          <img src="assets/img/wide-escritorio.webp" width="1400" height="900" loading="lazy" decoding="async"
+               alt="Escritório em planta aberta com estações de trabalho, salas de reunião envidraçadas e forro metálico preto.">
+        </div>
+      </div>
+
+      <div class="card card--arch">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/hall-onix.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Hall com balcão em ônix retroiluminado, marcenaria curva, espelhos e pendentes em latão.">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/cozinha-ilha.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Cozinha com ilha central, coifa em inox, pendentes de cobre e bancada em pedra.">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/dormitorio-ripado.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Dormitório com cabeceira em madeira ripada, iluminação embutida e closet integrado.">
+        </div>
+      </div>
+
+      <div class="card card--arch">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/corredor-mural.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Corredor com forro em madeira, iluminação linear embutida e painel fotográfico de piso a teto.">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/gourmet-pedra.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Ambiente gourmet com parede em pedra, estrutura metálica preta e banquetas.">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__media" data-mask>
+          <img src="assets/img/projetos/living-lareira.webp" width="800" height="1067" loading="lazy" decoding="async"
+               alt="Living com lareira em mármore, painel de TV, poltronas verdes e cortina em linho.">
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(2.25rem,4vw,3.25rem);text-align:center" data-rise>
+      <a class="btn" href="#formulario" data-cta="projetos">
+          Quero conversar sobre meu projeto
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROCESSO ============================ -->
+<section class="sec dark" id="processo">
+  <div class="wrap">
+    <div class="sec__head">
+      <h2 class="sec__title" data-rise>Como o projeto acontece</h2>
+      <p class="sec__intro" data-rise data-d="1">
+        Um caminho definido do começo ao fim, para você saber sempre em que etapa está e o que vem depois.
+      </p>
+    </div>
+
+    <ol class="steps">
+      <li class="step" data-rise>
+        <span class="step__n">01</span>
+        <h3>Conversa inicial</h3>
+        <p>Entendo a rotina da família, o terreno e o orçamento disponível. Dessa conversa saem o escopo,
+          o prazo e o investimento do projeto.</p>
+      </li>
+      <li class="step" data-rise data-d="1">
+        <span class="step__n">02</span>
+        <h3>Estudo preliminar</h3>
+        <p>Primeiras plantas e volumetria, com ajustes até o partido ficar do jeito que faz sentido
+          para quem vai usar o espaço.</p>
+      </li>
+      <li class="step" data-rise data-d="2">
+        <span class="step__n">03</span>
+        <h3>Projeto executivo</h3>
+        <p>Detalhamento técnico completo: marcenaria, iluminação, elétrica, acabamentos e tudo o que
+          a equipe de obra precisa receber pronto.</p>
+      </li>
+      <li class="step" data-rise data-d="3">
+        <span class="step__n">04</span>
+        <h3>Acompanhamento</h3>
+        <p>Suporte durante a execução, para que o que foi desenhado chegue ao final do mesmo jeito
+          que foi aprovado.</p>
+      </li>
+    </ol>
+
+    <div style="margin-top:clamp(2.5rem,5vw,3.75rem);text-align:center" data-rise>
+      <a class="btn" href="#formulario" data-cta="processo">
+          Quero conversar sobre meu projeto
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ELIS ============================ -->
+<section class="sec" id="elis">
+  <div class="wrap elis">
+    <div class="elis__media">
+      <figure class="arch" data-mask>
+        <img src="assets/img/elis.webp" width="900" height="1200" loading="lazy" decoding="async"
+             alt="Retrato de Elisângela Selau, arquiteta e urbanista responsável pelo escritório.">
+      </figure>
+    </div>
+
+    <div class="elis__text">
+      <h2 class="elis__quote" data-rise>“Tenho paixão pela minha profissão. Amo o que faço.”</h2>
+      <p data-rise data-d="1">
+        Elisângela Selau é arquiteta e urbanista formada pela UCS desde 2005, com quatro pós-graduações
+        pela FGV, pelo Centro Paula Souza, pela Uniftec e pelo Senac.
+      </p>
+      <p data-rise data-d="2">
+        À frente do escritório, ela acompanha pessoalmente cada projeto, do primeiro estudo à entrega.
+        O trabalho já foi publicado no Anuário Arquitetura e Design da Serra Gaúcha.
+      </p>
+      <div style="margin-top:2.4rem" data-rise data-d="3">
+        <a class="btn" href="#formulario" data-cta="elis">
+          Quero conversar sobre meu projeto
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ INSTAGRAM ============================ -->
+<section class="sec sec--tight" id="instagram">
+  <div class="wrap">
+    <div class="sec__head" style="margin-bottom:clamp(1.75rem,3vw,2.5rem)">
+      <h2 class="sec__title" data-rise>No Instagram</h2>
+      <p class="sec__intro" data-rise data-d="1">
+        Projetos novos, obras em andamento e os bastidores do escritório, atualizados toda semana.
+        <a class="lnk" style="margin-top:1rem" href="https://www.instagram.com/elisangelaselauarquitetura/" target="_blank" rel="noopener">
+          @elisangelaselauarquitetura
+          <svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="feed" data-rise>
+    <div class="feed__track" id="feed"></div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(2rem,4vw,2.75rem);text-align:center" data-rise>
+    <a class="btn" href="#formulario" data-cta="instagram">
+          Quero conversar sobre meu projeto
+    </a>
+  </div>
+</section>
+
+<!-- ============================ FORMULÁRIO ============================ -->
+<!-- Só existe na landing page. Etapa 1 filtra quem não é cliente (fornecedor,
+     parceiro, candidato a vaga): essas respostas não chegam no formulário nem no
+     WhatsApp. Etapa 2 é o pedido de atendimento. -->
+<section class="sec" id="formulario">
+  <div class="wrap lf">
+    <div class="lf__head">
+      <h2 class="sec__title" id="lf-titulo" data-rise>Como podemos ajudar você?</h2>
+    </div>
+
+    <div class="lf__body" data-rise data-d="1">
+
+      <!-- ETAPA 1: pergunta eliminatória -->
+      <div class="lf__passo" data-passo="1">
+        <ul class="lf__opcoes" aria-labelledby="lf-titulo">
+          <li><button type="button" class="lf__opcao" data-motivo="arquitetura"><span class="lf__n">01</span><span class="lf__txt">Quero contratar um projeto de arquitetura</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+          <li><button type="button" class="lf__opcao" data-motivo="interiores"><span class="lf__n">02</span><span class="lf__txt">Quero contratar um projeto de interiores</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+          <li><button type="button" class="lf__opcao" data-motivo="construcao"><span class="lf__n">03</span><span class="lf__txt">Estou construindo e preciso de um projeto</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+          <li><button type="button" class="lf__opcao" data-motivo="reforma"><span class="lf__n">04</span><span class="lf__txt">Estou reformando e preciso de um projeto</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+          <li><button type="button" class="lf__opcao" data-motivo="fornecedor"><span class="lf__n">05</span><span class="lf__txt">Quero oferecer produtos, serviços ou propor uma parceria</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+          <li><button type="button" class="lf__opcao" data-motivo="emprego"><span class="lf__n">06</span><span class="lf__txt">Estou procurando emprego ou estágio</span><svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg></button></li>
+        </ul>
+      </div>
+
+      <!-- BLOQUEIO: opções 5 e 6. Nada de formulário, nada de WhatsApp. -->
+      <div class="lf__passo lf__bloqueio" data-passo="bloqueio" tabindex="-1" hidden>
+        <p class="lf__aviso">Agradecemos o seu contato. Este canal é exclusivo para clientes interessados na contratação de projetos de arquitetura e interiores. Propostas comerciais, apresentação de produtos, currículos e solicitações de parceria não são atendidas por este formulário.</p>
+        <a class="lnk lf__email" href="mailto:parcerias@elisangelaselauarquitetura.com.br?subject=Proposta%20comercial" hidden>
+          parcerias@<wbr>elisangelaselauarquitetura.com.br
+          <svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+        <button type="button" class="lf__voltar" data-voltar>Voltar</button>
+      </div>
+
+      <!-- ETAPA 2: só para as opções 1 a 4 -->
+      <form class="form lf__passo" data-passo="2" id="lf-form" tabindex="-1" novalidate hidden>
+        <p class="lf__escolha"><span id="lf-escolha"></span><button type="button" class="lf__voltar" data-voltar>Alterar</button></p>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="lf-nome">Nome</label>
+            <input id="lf-nome" name="nome" type="text" autocomplete="name" placeholder="Como você se chama" required>
+            <span class="field__err">Preencha o seu nome.</span>
+          </div>
+          <div class="field">
+            <label for="lf-whats">WhatsApp</label>
+            <input id="lf-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(54) 90000-0000" required>
+            <span class="field__err">Informe um WhatsApp com DDD.</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="lf-cidade">Cidade onde será realizado o projeto</label>
+          <input id="lf-cidade" name="cidade" type="text" autocomplete="address-level2" placeholder="Ex.: Caxias do Sul" required>
+          <span class="field__err">Informe a cidade do projeto.</span>
+        </div>
+
+        <fieldset class="field lf__grupo">
+          <legend>Qual serviço você procura?</legend>
+          <div class="lf__chips">
+            <label><input type="radio" name="servico" value="Projeto arquitetônico" required><span>Projeto arquitetônico</span></label>
+            <label><input type="radio" name="servico" value="Projeto de interiores"><span>Projeto de interiores</span></label>
+            <label><input type="radio" name="servico" value="Projeto arquitetônico e interiores"><span>Projeto arquitetônico e interiores</span></label>
+            <label><input type="radio" name="servico" value="Reforma"><span>Reforma</span></label>
+            <label><input type="radio" name="servico" value="Ainda não sei"><span>Ainda não sei</span></label>
+          </div>
+          <span class="field__err">Escolha uma opção.</span>
+        </fieldset>
+
+        <fieldset class="field lf__grupo">
+          <legend>Qual é o tipo de imóvel?</legend>
+          <div class="lf__chips">
+            <label><input type="radio" name="imovel" value="Casa" required><span>Casa</span></label>
+            <label><input type="radio" name="imovel" value="Apartamento"><span>Apartamento</span></label>
+            <label><input type="radio" name="imovel" value="Espaço comercial"><span>Espaço comercial</span></label>
+            <label><input type="radio" name="imovel" value="Outro"><span>Outro</span></label>
+          </div>
+          <span class="field__err">Escolha uma opção.</span>
+        </fieldset>
+
+        <fieldset class="field lf__grupo">
+          <legend>Em qual momento você está?</legend>
+          <div class="lf__chips">
+            <label><input type="radio" name="momento" value="Pretendo começar imediatamente" required><span>Pretendo começar imediatamente</span></label>
+            <label><input type="radio" name="momento" value="Dentro dos próximos 3 meses"><span>Dentro dos próximos 3 meses</span></label>
+            <label><input type="radio" name="momento" value="Entre 3 e 6 meses"><span>Entre 3 e 6 meses</span></label>
+            <label><input type="radio" name="momento" value="Ainda estou pesquisando"><span>Ainda estou pesquisando</span></label>
+          </div>
+          <span class="field__err">Escolha uma opção.</span>
+        </fieldset>
+
+        <div class="field">
+          <label for="lf-sobre">Conte brevemente sobre o seu projeto</label>
+          <textarea id="lf-sobre" name="sobre" rows="4" placeholder="Metragem, etapa em que está e o que você espera do resultado."></textarea>
+        </div>
+
+        <!-- origem da campanha: preenchido pelo script, invisível para o visitante -->
+        <input type="hidden" name="motivo">
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="gclid">
+        <input type="hidden" name="gbraid">
+        <input type="hidden" name="wbraid">
+        <input type="hidden" name="fbclid">
+        <input type="hidden" name="pagina_entrada">
+        <input type="hidden" name="referencia">
+        <!-- isca para robô: gente não vê nem preenche -->
+        <input class="hp" type="text" name="apelido" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form__foot">
+          <button class="btn" type="submit">
+            Solicitar atendimento
+            <svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
+        </div>
+        <p class="sr-only" role="status" aria-live="polite" id="lf-status"></p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ RODAPÉ ============================ -->
+<footer class="foot" id="contato">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <a class="foot__logo brand" href="#topo" aria-label="Elisângela Selau Arquitetura, topo da página"></a>
+        <p>Arquitetura, interiores e regularização de obras em Caxias do Sul e região da Serra Gaúcha.</p>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="#estudio">Estúdio</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#processo">Processo</a></li>
+          <li><a href="#elis">A arquiteta</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contato</h3>
+        <ul class="foot__contato">
+          <li><a href="#formulario">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="2.5" width="15" height="19" rx="2.5"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg>
+            Solicitar atendimento</a></li>
+          <li><a href="https://www.instagram.com/elisangelaselauarquitetura/" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+            @elisangelaselauarquitetura</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot__bot">
+      <span>© <span id="ano">2026</span> Elisângela Selau Arquitetura</span>
+      <span>Caxias do Sul, RS, Brasil</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/lp-form.js" defer></script>
+</body>
+</html>
