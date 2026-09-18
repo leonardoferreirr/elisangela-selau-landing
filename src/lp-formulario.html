@@ -22,14 +22,14 @@
         </ul>
       </div>
 
-      <!-- BLOQUEIO: opções 5 e 6. Nada de formulário, nada de WhatsApp. -->
+      <!-- BLOQUEIO: opções 5 e 6. Nada de formulário, nada de WhatsApp e sem
+           caminho de volta para as opções; só o e-mail de parcerias. -->
       <div class="lf__passo lf__bloqueio" data-passo="bloqueio" tabindex="-1" hidden>
         <p class="lf__aviso">Agradecemos o seu contato. Este canal é exclusivo para clientes interessados na contratação de projetos de arquitetura e interiores. Propostas comerciais, apresentação de produtos, currículos e solicitações de parceria não são atendidas por este formulário.</p>
-        <a class="lnk lf__email" href="mailto:parcerias@elisangelaselauarquitetura.com.br?subject=Proposta%20comercial" hidden>
+        <a class="lnk lf__email" href="mailto:parcerias@elisangelaselauarquitetura.com.br?subject=Proposta%20comercial">
           parcerias@<wbr>elisangelaselauarquitetura.com.br
           <svg class="arw" width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M0 4.5h13M9.5 1 13 4.5 9.5 8" stroke="currentColor" stroke-width="1.2"/></svg>
         </a>
-        <button type="button" class="lf__voltar" data-voltar>Voltar</button>
       </div>
 
       <!-- ETAPA 2: só para as opções 1 a 4 -->
@@ -61,8 +61,7 @@
             <label><input type="radio" name="servico" value="Projeto arquitetônico" required><span>Projeto arquitetônico</span></label>
             <label><input type="radio" name="servico" value="Projeto de interiores"><span>Projeto de interiores</span></label>
             <label><input type="radio" name="servico" value="Projeto arquitetônico e interiores"><span>Projeto arquitetônico e interiores</span></label>
-            <label><input type="radio" name="servico" value="Reforma"><span>Reforma</span></label>
-            <label><input type="radio" name="servico" value="Ainda não sei"><span>Ainda não sei</span></label>
+            <label><input type="radio" name="servico" value="Projeto de Reforma"><span>Projeto de Reforma</span></label>
           </div>
           <span class="field__err">Escolha uma opção.</span>
         </fieldset>

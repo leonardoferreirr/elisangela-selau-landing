@@ -82,8 +82,9 @@ tráfego pago.
 
 **Etapa 1** pergunta "Como podemos ajudar você?". As opções 5 (fornecedor ou
 parceria) e 6 (emprego ou estágio) param ali, com a mensagem de que o canal é
-exclusivo para clientes. A 5 mostra `parcerias@elisangelaselauarquitetura.com.br`.
-Nenhuma das duas chega no formulário nem no WhatsApp.
+exclusivo para clientes e o `parcerias@elisangelaselauarquitetura.com.br` (assunto
+"Proposta comercial" na 5 e "Currículo" na 6). Não há botão de voltar: nenhuma das
+duas chega no formulário nem no WhatsApp, e quem clicou errado recarrega a página.
 
 **Etapa 2** é o pedido. O envio monta a mensagem do WhatsApp, guarda na sessão
 (nunca na URL) e vai para `obrigado-lp`, que abre o WhatsApp.

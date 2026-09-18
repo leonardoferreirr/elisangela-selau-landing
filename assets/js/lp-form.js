@@ -25,9 +25,9 @@
     arquitetura: { ok: true,  servico: 'Projeto arquitetônico' },
     interiores:  { ok: true,  servico: 'Projeto de interiores' },
     construcao:  { ok: true },
-    reforma:     { ok: true,  servico: 'Reforma' },
-    fornecedor:  { ok: false, email: true },
-    emprego:     { ok: false }
+    reforma:     { ok: true,  servico: 'Projeto de Reforma' },
+    fornecedor:  { ok: false, assunto: 'Proposta comercial' },
+    emprego:     { ok: false, assunto: 'Currículo' }
   };
 
   const $  = (s, c = document) => c.querySelector(s);
@@ -101,7 +101,9 @@
     dl({ event: 'lp_triagem', resposta: motivo, qualificado: m.ok });
 
     if (!m.ok) {
-      $('.lf__email', secao).hidden = !m.email;
+      // as duas opções bloqueadas levam ao e-mail de parcerias, com o assunto de cada uma
+      $('.lf__email', secao).href =
+        `mailto:parcerias@elisangelaselauarquitetura.com.br?subject=${encodeURIComponent(m.assunto)}`;
       mostrar('bloqueio');
       return;
     }
